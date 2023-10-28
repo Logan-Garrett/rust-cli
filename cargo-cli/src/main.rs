@@ -3,7 +3,7 @@ use std::io;
 use std::process::{Command, Output};
 
 fn main() {
-    	println!("Hello and welcome to 'name'!");
+    	println!("Hello and welcome to RITA!");
 	
 	let mut command = String::new();
 
@@ -41,6 +41,15 @@ fn main() {
                 } else {
                     eprintln!("Error running command: {}", String::from_utf8_lossy(&output.stderr));
                 }
+        }
+        if command.trim().to_lowercase() == "rita?" {
+            print!("RITA Stands for Rust Integrated Terminal Application\n");
+        }
+        if command.trim().to_lowercase() == "help" {
+            print!("Current Command List
+            -| ls   - List Files/Directories in Current Folder.
+            -| pwd  - Show Current File Path.
+            -| exit - Exit RITA.\n");
         }
 		command = String::new();
 	}
